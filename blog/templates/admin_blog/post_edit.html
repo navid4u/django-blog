@@ -1,0 +1,12 @@
+{% extends 'admin_blog/base.html' %} {% block title %}ویرایش پست{% endblock %}
+{% block content %}
+<h1>ویرایش پست</h1>
+<form method="POST">
+  {% csrf_token %}
+  <label>عنوان:</label>
+  <input type="text" name="title" value="{{ post.title }}" required />
+  <label>محتوا:</label>
+  <textarea name="content" required>{{ post.content }}</textarea>
+  <button type="submit" class="btn-edit">ذخیره تغییرات</button>
+</form>
+{% endblock %}

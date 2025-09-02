@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}پنل ادمین{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="{% static 'admin_blog/css/admin_style.css' %}"
+    />
+    <script src="{% static 'admin_blog/js/admin_script.js' %}"></script>
+  </head>
+  <body>
+    <nav class="sidebar">
+      <h2>پنل ادمین</h2>
+      <ul>
+        <li><a href="{% url 'admin_dashboard' %}">داشبورد</a></li>
+        <li><a href="{% url 'admin_post_add' %}">افزودن پست</a></li>
+        <li><a href="{% url 'admin_dashboard' %}">لیست پست‌ها</a></li>
+      </ul>
+    </nav>
+
+    <main class="main-content">{% block content %}{% endblock %}</main>
+  </body>
+</html>

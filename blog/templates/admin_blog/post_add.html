@@ -1,0 +1,12 @@
+{% extends 'admin_blog/base.html' %} {% block title %}افزودن پست{% endblock %}
+{% block content %}
+<h1>افزودن پست جدید</h1>
+<form method="POST">
+  {% csrf_token %}
+  <label>عنوان:</label>
+  <input type="text" name="title" required />
+  <label>محتوا:</label>
+  <textarea name="content" required></textarea>
+  <button type="submit" class="btn-add">ثبت پست</button>
+</form>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'admin_blog/base.html' %} {% block title %}لیست پست‌ها{% endblock %}
+{% block content %}
+
+<div class="cards">
+    <div class="card">
+        <h3>کل پست‌ها</h3>
+        <p>{{ posts|length }}</p>
+    </div>
+    <div class="card">
+        <h3>آخرین پست</h3>
+        <p>{% if posts %}{{ posts.0.title }}{% else %}-{% endif %}</p>
+    </div>
+</div>
+
+
+<h1>لیست پست‌ها</h1>
+<table class="admin-table">
+  <thead>
+    <tr>
+      <th>عنوان</th>
+      <th>تاریخ ایجاد</th>
+      <th>عملیات</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for post in posts %}
+    <tr>
+      <td>{{ post.title }}</td>
+      <td>{{ post.created_at }}</td>
+      <td>
+        <a class="btn-edit" href="{% url 'admin_post_edit' post.id %}"
+          >ویرایش</a
+        >
+        <a class="btn-delete" href="{% url 'admin_post_delete' post.id %}"
+          >حذف</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
